@@ -7,19 +7,19 @@ slow_values = [2.03, 1.34]
 x = range(len(labels))
 bar_width = 0.35
 
-# create the plot
+# create the plot with transparent background
 fig, ax = plt.subplots(figsize=(8, 5))
-fig.patch.set_facecolor('#ff0000ff') 
-ax.set_facecolor('#ff0000ff')         
+fig.patch.set_alpha(0.0)
+ax.patch.set_alpha(0.0)
 
 # bar positions and colors
 fast_bars = ax.bar(
     [i - bar_width/2 for i in x], fast_values, bar_width,
-    label='C8 ≤ 60s', color='black' 
+    label='Q1 ≤ 60s', color='#ff0000ff'
 )
 slow_bars = ax.bar(
     [i + bar_width/2 for i in x], slow_values, bar_width,
-    label='C8 > 60s', color='#FAC800'
+    label='Q1 > 60s', color='#FAC800'
 )
 
 # labels and formatting
